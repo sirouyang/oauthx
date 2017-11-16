@@ -39,23 +39,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                         "/**/*.js",
                         "/**/*.css",
                         "/**/*.html")
-                .permitAll()
-                //其他地址的访问均需验证权限
-                .anyRequest().authenticated()//任何请求,登录后可以访问
+                .permitAll()//其他地址的访问均需验证权限
+                .anyRequest().authenticated()//登录后可以访问任何请求
                 .and()
-                .formLogin()//指定登录页是"/login"
-                .loginPage("/").permitAll()//登录页面随意访问
-                .loginProcessingUrl("/login")//登录时提交的地址
-                .defaultSuccessUrl("/home").permitAll()//登录成功后默认跳转到"/"随意访问
-                .failureUrl("/?error=true").permitAll()//失败后跳到/login页面
+                .formLogin().loginPage("/").permitAll()//指定登录页是"/",登录页面随意访问
+                .loginProcessingUrl("/login")//登录时提交处理地址
+                .defaultSuccessUrl("/home?login=true").permitAll()//登录成功后默认跳转到"/home"随意访问
+                .failureUrl("/?login=false").permitAll()//失败后跳到/login页面
                 .and()
-                .logout()
-                .logoutSuccessUrl("/?logout=true")//退出登录后的默认url是"/login"
-                .permitAll().and().rememberMe()
-                .tokenValiditySeconds(604800)
-                .rememberMeParameter("remember-me")
+                .logout().logoutSuccessUrl("/?logout=true").permitAll()//退出登录后的默认url是"/login"
+                .and()
+                .rememberMe().tokenValiditySeconds(604800).rememberMeParameter("remember-me")
                 .rememberMeCookieName("oauthx");
-        ;
     }
 
 //    @Autowired
