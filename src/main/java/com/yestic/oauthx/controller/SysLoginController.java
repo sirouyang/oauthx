@@ -26,6 +26,10 @@ public class SysLoginController {
 
     @RequestMapping("/login")
     public String login(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication!=null&&!authentication.getPrincipal().equals("anonymousUser")&&authentication.isAuthenticated()){
+            return "redirect:/home";
+        }
         return "/login/index";
     }
 
