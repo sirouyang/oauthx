@@ -1,18 +1,23 @@
 package com.yestic.oauthx.config;
 
 import com.yestic.oauthx.service.AuthService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)//开启security注解
+@EnableGlobalAuthentication
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override
@@ -24,7 +29,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
-        auth.userDetailsService(userDetailsService());
+        //对于密码不加密
+        //auth.userDetailsService(userDetailsService());
+
+        /**对于数据库密码加密的情况*/
+        auth.userDetailsService(userDetailsService()).passwordEncoder(new PasswordEncoder(){
+            //rawPassword 前台传递来的 password
+            //encodedPassword 后台计算的 password
+            @Override
+            public String encode(CharSequence rawPassword) {
+                return new Md5PasswordEncoder().encodePassword(rawPassword.toString(),"oauthx-salt");
+            }
+            @Override
+            public boolean matches(CharSequence rawPassword, String encodedPassword) {
+                return encodedPassword.equals(new Md5PasswordEncoder().encodePassword(rawPassword.toString(),"oauthx-salt"));
+            }
+        });
     }
 
 
