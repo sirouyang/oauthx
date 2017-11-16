@@ -1,219 +1,96 @@
 <#assign base = request.contextPath />
+<#--<#assign security=JspTaglibs["http://www.springframework.org/security/tags"] />-->
+
+<#--<#assign security=JspTaglibs["/WEB-INF/tlds/security.tld"] />-->
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="${base}/static/img/favicon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>首页</title>
-    <!-- Bootstrap core CSS -->
-    <link href="${base}/static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="${base}/static/bootstrap-3.3.7-dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="${base}/static/css/dashboard.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="${base}/static/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="${base}/static/js/ie-emulation-modes-warning.js"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="${base}/static/js/html5shiv.min.js"></script>
-    <script src="${base}/static/js/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="${base}/static/layui/css/layui.css">
 </head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">oauthx</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item"><a href="">菜单管理</a></li>
+            <li class="layui-nav-item"><a href="">用户管理</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    <#--<@security.authorize access="isAuthenticated()">-->
+                        <#--<@security.authentication property="principal.username" />-->
+                    <#--</@security.authorize>-->
+                    ${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="${base}/logout">退了</a></li>
+        </ul>
+    </div>
 
-<body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">OAuthX</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">设置</a></li>
-                <li><a href="#">帮助</a></li>
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">用户管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">用户列表</a></dd>
+                        <dd><a href="javascript:;">用户统计</a></dd>
+                        <dd><a href="javascript:;">菜单3</a></dd>
+                        <dd><a href="">菜单4</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">角色管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">角色列表</a></dd>
+                        <dd><a href="javascript:;">角色统计</a></dd>
+                        <dd><a href="">菜单3</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">资源管理</a></li>
+                <li class="layui-nav-item"><a href="">数据字典</a></li>
             </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="搜索...">
-            </form>
         </div>
     </div>
-</nav>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">用户管理 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">用户列表</a></li>
-                <li><a href="#">用户统计</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">角色管理 <span class="sr-only">(current)</span></a></li>
-                <li><a href="">角色列表</a></li>
-                <li><a href="">角色统计</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">资源管理 <span class="sr-only">(current)</span></a></li>
-                <li><a href="">资源列表</a></li>
-                <li><a href="">资源统计</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h2 class="sub-header">用户列表</h2>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>用户名</th>
-                        <th>登录名</th>
-                        <th>当前状态</th>
-                        <th>角色</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,004</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,005</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,006</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,007</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,008</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,009</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    <tr>
-                        <td>1,010</td>
-                        <td>管理员</td>
-                        <td>admin</td>
-                        <td>启用</td>
-                        <td>超级管理员</td>
-                        <td>add</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="6">
-                                <nav aria-label="Page navigation" style="text-align: right;">
-                                    <ul class="pagination pagination-lg">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">内容主体区域</div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © yesitc.com - 引用layui后台布局
     </div>
 </div>
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<#--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-<script>window.jQuery || document.write('<script src="${base}/static/js/jquery-3.2.1.min.js"><\/script>')</script>
-<script src="${base}/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-<script src="${base}/static/js/assets/js/vendor/holder.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="${base}/static/js/ie10-viewport-bug-workaround.js"></script>
+<script src="${base}/static/layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
 </body>
 </html>
