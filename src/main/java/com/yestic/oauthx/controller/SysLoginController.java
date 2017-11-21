@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class SysLoginController {
 
+    //UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
     @RequestMapping("/")
     public String index(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

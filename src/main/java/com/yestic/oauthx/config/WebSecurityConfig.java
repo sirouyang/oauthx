@@ -1,7 +1,6 @@
 package com.yestic.oauthx.config;
 
 import com.yestic.oauthx.service.AuthService;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;

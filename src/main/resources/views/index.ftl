@@ -1,9 +1,7 @@
 <#assign base = request.contextPath />
-<#--<#assign security=JspTaglibs["http://www.springframework.org/security/tags"] />-->
+<#assign security=JspTaglibs["http://www.springframework.org/security/tags"] />
 
-<#--<#assign security=JspTaglibs["/WEB-INF/tlds/security.tld"] />-->
-
-
+<#--<#import "/header.ftl" as spring />-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +32,10 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    <#--<@security.authorize access="isAuthenticated()">-->
-                        <#--<@security.authentication property="principal.username" />-->
-                    <#--</@security.authorize>-->
-                    ${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}
+                    <@security.authorize access="isAuthenticated()">
+                        <@security.authentication property="principal.username" />
+                    </@security.authorize>
+                    <#--${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}-->
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>

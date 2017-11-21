@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="${base}/static/img/favicon.jpg">
 
-    <title>OAuthX登录</title>
+    <title>oauthx登录</title>
     <!-- Bootstrap core CSS -->
     <link href="${base}/static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -47,8 +47,8 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
     </form>
-
-</div> <!-- /container -->
+</div>
+<!-- /container -->
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="${base}/static/js/ie10-viewport-bug-workaround.js"></script>
 </body>
