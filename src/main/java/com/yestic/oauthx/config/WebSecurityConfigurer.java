@@ -19,7 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)//开启security注解
 @EnableGlobalAuthentication
 @EnableOAuth2Sso//开启基于OAuth2的单点登录
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
 
     @Override
     @Bean
