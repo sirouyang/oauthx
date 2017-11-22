@@ -1,6 +1,7 @@
 package com.yestic.oauthx.config;
 
 import com.yestic.oauthx.service.AuthService;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
@@ -17,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)//开启security注解
 @EnableGlobalAuthentication
+@EnableOAuth2Sso//开启基于OAuth2的单点登录
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override

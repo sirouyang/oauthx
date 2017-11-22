@@ -37,9 +37,9 @@
     <form id="loginForm" class="form-signin" action="${base}/login" method="post">
         <h2 class="form-signin-heading">请登录</h2>
         <label for="inputLoginName" class="sr-only">用户名</label>
-        <input type="text" id="inputLoginName" name="username" class="form-control" placeholder="用户名" required autofocus>
+        <input type="text" id="inputLoginName" name="username" class="form-control" placeholder="用户名" value="admin" required autofocus>
         <label for="inputPassword" class="sr-only">密码</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" value="123456" required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" id="remember-me" name="remember-me" value="remember-me"> 记住我一个礼拜
