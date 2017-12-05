@@ -1,23 +1,24 @@
-package com.yestic.oauthx.entity;
+package com.yestic.oauthx.sys.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
-@Table(name = "SYS_ROLE_PERMISSION")
+@Table(name = "SYS_ACCOUNT_ROLE")
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
-public class SysRolePermission {
+public class SysAccountRole {
 
     @Id
     @GeneratedValue(generator = "jpa-uuid")
     @Column(length = 32)
     private String id;
 
-    private String roleId;
+    private String accountId;
 
-    private String permissionId;
+    private String roleId;
 
     private Date insDate;
 
@@ -35,20 +36,20 @@ public class SysRolePermission {
         this.id = id;
     }
 
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
     public String getRoleId() {
         return roleId;
     }
 
     public void setRoleId(String roleId) {
         this.roleId = roleId;
-    }
-
-    public String getPermissionId() {
-        return permissionId;
-    }
-
-    public void setPermissionId(String permissionId) {
-        this.permissionId = permissionId;
     }
 
     public Date getInsDate() {

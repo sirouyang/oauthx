@@ -1,6 +1,6 @@
-package com.yestic.oauthx.dao;
+package com.yestic.oauthx.sys.dao;
 
-import com.yestic.oauthx.entity.SysAccountRole;
+import com.yestic.oauthx.sys.entity.SysAccountRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

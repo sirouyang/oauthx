@@ -1,6 +1,6 @@
-package com.yestic.oauthx.service;
+package com.yestic.oauthx.sys.server;
 
-import com.yestic.oauthx.dao.SysUserDao;
+import com.yestic.oauthx.sys.dao.SysUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

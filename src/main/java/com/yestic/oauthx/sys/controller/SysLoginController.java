@@ -1,4 +1,4 @@
-package com.yestic.oauthx.controller;
+package com.yestic.oauthx.sys.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;

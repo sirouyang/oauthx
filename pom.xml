@@ -78,11 +78,11 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
-		<dependency>
+		<!--<dependency>
   			<groupId>org.springframework.security.oauth</groupId>
   			<artifactId>spring-security-oauth2</artifactId>
   			<version>2.2.0.RELEASE</version>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -146,7 +146,7 @@
 
 		<!--常用的util-->
 		<!--commons-beanutils 依赖于Commons Codec、Commons Logging-->
-		<!--<dependency>
+		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.3</version>
@@ -168,7 +168,7 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.7</version>
-		</dependency>-->
+		</dependency>
 
 	</dependencies>
 

@@ -1,4 +1,4 @@
-package com.yestic.oauthx.entity;
+package com.yestic.oauthx.sys.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

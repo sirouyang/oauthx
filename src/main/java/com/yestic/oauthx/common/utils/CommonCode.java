@@ -1,4 +1,4 @@
-package com.yestic.oauthx.util;
+package com.yestic.oauthx.common.utils;
 
 public class CommonCode {
 

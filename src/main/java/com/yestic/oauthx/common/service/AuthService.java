@@ -1,11 +1,11 @@
-package com.yestic.oauthx.service;
+package com.yestic.oauthx.common.service;
 
-import com.yestic.oauthx.dao.*;
-import com.yestic.oauthx.entity.SysAccountRole;
-import com.yestic.oauthx.entity.SysPermission;
-import com.yestic.oauthx.entity.SysRolePermission;
-import com.yestic.oauthx.entity.SysUser;
-import com.yestic.oauthx.util.CommonCode;
+import com.yestic.oauthx.sys.dao.*;
+import com.yestic.oauthx.sys.entity.SysAccountRole;
+import com.yestic.oauthx.sys.entity.SysPermission;
+import com.yestic.oauthx.sys.entity.SysRolePermission;
+import com.yestic.oauthx.sys.entity.SysUser;
+import com.yestic.oauthx.common.utils.CommonCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,4 +1,4 @@
-package com.yestic.oauthx.entity;
+package com.yestic.oauthx.common.entity;
 
 import java.util.Date;
 

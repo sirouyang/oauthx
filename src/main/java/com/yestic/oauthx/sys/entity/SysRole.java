@@ -1,29 +1,21 @@
-package com.yestic.oauthx.entity;
-
+package com.yestic.oauthx.sys.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 
-
 @Entity
-@Table(name = "SYS_PERMISSION")
+@Table(name = "SYS_ROLE")
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
-public class SysPermission {
+public class SysRole {
 
     @Id
     @GeneratedValue(generator = "jpa-uuid")
     @Column(length = 32)
     private String id;
 
-    private String permissionName;
-
-    private String descritpion;
-
-    private String permissionUrl;
-
-    private String parentId;
+    private String roleName;
 
     private Date insDate;
 
@@ -32,6 +24,7 @@ public class SysPermission {
     private Date lastUpdDate;
 
     private String lastAccountId;
+    private String name;
 
     public String getId() {
         return id;
@@ -41,36 +34,12 @@ public class SysPermission {
         this.id = id;
     }
 
-    public String getPermissionName() {
-        return permissionName;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setPermissionName(String permissionName) {
-        this.permissionName = permissionName;
-    }
-
-    public String getDescritpion() {
-        return descritpion;
-    }
-
-    public void setDescritpion(String descritpion) {
-        this.descritpion = descritpion;
-    }
-
-    public String getPermissionUrl() {
-        return permissionUrl;
-    }
-
-    public void setPermissionUrl(String permissionUrl) {
-        this.permissionUrl = permissionUrl;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public Date getInsDate() {
@@ -105,4 +74,7 @@ public class SysPermission {
         this.lastAccountId = lastAccountId;
     }
 
+    public String getName() {
+        return name;
+    }
 }

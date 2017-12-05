@@ -1,4 +1,4 @@
-package com.yestic.oauthx.config;
+package com.yestic.oauthx.common.configurer;
 
 import freemarker.ext.jsp.TaglibFactory;
 import org.springframework.beans.factory.annotation.Autowired;
