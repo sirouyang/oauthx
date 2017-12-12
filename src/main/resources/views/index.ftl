@@ -17,8 +17,8 @@
         <div class="layui-logo">FTP校验</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="${base}/ftp/index">控制台</a></li>
-            <li class="layui-nav-item"><a href="">菜单管理</a></li>
+            <li class="layui-nav-item"><a href="${base}/ftp/index">验证详情</a></li>
+            <li class="layui-nav-item"><a href="${base}/ftp/upld">上传详情</a></li>
             <li class="layui-nav-item"><a href="">用户管理</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">其它系统</a>

@@ -3,7 +3,7 @@ package com.yestic.oauthx.ftp.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "FTP_UPLOAD_DETAIL")
@@ -32,9 +32,24 @@ public class FtpUploadDetail {
     private Date uploadDate;
 
     /**
-     * 上传状态，0未上传、1已上传、-1不上传（不需要上传）
+     * 上传状态：0未上传、1已上传、-1不上传（不需要上传）
      */
     private int updStatus;
+
+    /**
+     * 验证状态：1,验证通过、-1验证未通过、0尚未验证、2不需要验证
+     */
+    private int valStatus;
+
+    /**
+     * 上传方式：0，FTP;1,流（kafka）
+     */
+    private int updMode;
+
+    /**
+     * 备注信息
+     */
+    private String remark;
 
     //数据插入时间
     private Date insDate;
@@ -121,5 +136,27 @@ public class FtpUploadDetail {
         this.updStatus = updStatus;
     }
 
+    public int getValStatus() {
+        return valStatus;
+    }
 
+    public void setValStatus(int valStatus) {
+        this.valStatus = valStatus;
+    }
+
+    public int getUpdMode() {
+        return updMode;
+    }
+
+    public void setUpdMode(int updMode) {
+        this.updMode = updMode;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 }
