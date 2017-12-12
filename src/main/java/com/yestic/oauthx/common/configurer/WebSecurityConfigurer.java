@@ -59,6 +59,10 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
                         "/druid/**",
                         "/**/*.js",
                         "/**/*.css",
+                        "/**/*.eot",
+                        "/**/*.svg",
+                        "/**/*.tff",
+                        "/**/*.woff",
                         "/**/*.html")
                 .permitAll()//其他地址的访问均需验证权限
                 .anyRequest().authenticated()//登录后可以访问任何请求

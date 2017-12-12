@@ -170,6 +170,69 @@
 			<version>3.7</version>
 		</dependency>
 
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!--<dependency>-->
+			<!--<groupId>com.google.guava</groupId>-->
+			<!--<artifactId>guava</artifactId>-->
+			<!--<version>23.5-jre</version>-->
+		<!--</dependency>-->
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.0</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>com.github.cyfonly</groupId>
+			<artifactId>flogger</artifactId>
+			<version>1.0.2</version>
+		</dependency>-->
+
+		<!--判断文件编码的依赖begin-->
+		<!--mvn install:install-file -Dfile=C:\Users\panda\Desktop\cpdetector_1.0.10_binary\cpdetector_1.0.10.jar -DgroupId=net.sourceforge.cpdetector -DartifactId=cpdetector -Dversion=1.0.10 -Dpackaging=jar
+
+mvn install:install-file -Dfile=C:\Users\panda\Desktop\cpdetector_1.0.10_binary\ext\antlr-2.7.4.jar -DgroupId=antlr  -DartifactId=antlr -Dversion=2.7.4 -Dpackaging=jar
+
+mvn install:install-file -Dfile=C:\Users\panda\Desktop\cpdetector_1.0.10_binary\ext\chardet-1.0.jar -DgroupId=org.mozilla.intl -DartifactId=chardet -Dversion=1.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=C:\Users\panda\Desktop\cpdetector_1.0.10_binary\ext\jargs-1.0.jar -DgroupId=jargs -DartifactId=jargs -Dversion=1.0 -Dpackaging=jar-->
+		<dependency>
+			<groupId>net.sourceforge.cpdetector</groupId>
+			<artifactId>cpdetector</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mozilla.intl</groupId>
+			<artifactId>chardet</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jargs</groupId>
+			<artifactId>jargs</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!--判断文件编码的依赖end-->
+
 	</dependencies>
 
 	<build>
