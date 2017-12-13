@@ -6,6 +6,7 @@ import com.yestic.oauthx.ftp.entity.FtpTableDetail;
 import com.yestic.oauthx.ftp.entity.FtpValidateBatch;
 import com.yestic.oauthx.ftp.entity.ValidateEx;
 import com.yestic.oauthx.ftp.service.*;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,9 +38,24 @@ public class FtpController {
     @Autowired
     private ValidateBatchService validateBatchService;
 
+    @RequestMapping("/index")
+    public String toIndex() {
+        return "/ftp/index";
+    }
+
+    @RequestMapping("/upld")
+    public String toUpldinfo() {
+        return "/ftp/upldinfo";
+    }
+
+    @RequestMapping("/upd")
+    public String toUpd() {
+        return "/ftp/upd";
+    }
+
     @RequestMapping("/validate")
     @ResponseBody
-    public Map<String, Object> validate(@RequestParam String provCode, @RequestParam String tableCode, @RequestParam String batchCode) {
+    public Map<String, Object> getValidates(@RequestParam String provCode, @RequestParam String tableCode, @RequestParam String batchCode) {
         provCode = provCode == null ? "" : provCode;
         tableCode = tableCode == null ? "" : tableCode;
         batchCode = batchCode == null ? "" : batchCode;
@@ -92,21 +108,6 @@ public class FtpController {
         return result;
     }
 
-    @RequestMapping("/index")
-    public String index() {
-        return "/ftp/index";
-    }
-
-    @RequestMapping("/upld")
-    public String upldinfo() {
-        return "/ftp/upldinfo";
-    }
-
-    @RequestMapping("/upd")
-    public String upd() {
-        return "/ftp/upd";
-    }
-
     @RequestMapping("/getUpldInfo")
     @ResponseBody
     public Map<String, Object> getUpldInfo(@RequestParam String provCode, @RequestParam String tableCode, @RequestParam String valStatus, @RequestParam String updStatus, @RequestParam String updMode) {
@@ -122,6 +123,13 @@ public class FtpController {
         result.put("code", 0);
         result.put("data", dataList);
         return result;
+    }
+
+    @RequestMapping("/updVal")
+    @ResponseBody
+    public int updVal(@RequestParam String provCode, @RequestParam String[] tableCodes, @RequestParam String updStatus, @RequestParam String valStatus, @RequestParam String remark) {
+        int i = validateDetailService.updValDetail(provCode, tableCodes, updStatus, valStatus, remark);
+        return i;
     }
 
 }

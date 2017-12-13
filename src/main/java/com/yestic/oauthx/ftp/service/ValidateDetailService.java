@@ -1,14 +1,17 @@
 package com.yestic.oauthx.ftp.service;
 
 import com.yestic.oauthx.ftp.dao.ValidateDetailDao;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.SQLQuery;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -58,6 +61,39 @@ public class ValidateDetailService {
             result.add(row);
         }
         return result;
+    }
+
+    @Transactional
+    public int updValDetail(String provCode,String[] tableCodes,String updStatus ,String valStatus ,String remark){
+        int i = 0;
+        String tableCodeStr = "";
+        StringBuffer sql = new StringBuffer();
+        sql.append("update ftp_upload_detail set");
+        if(updStatus!=null){
+            sql.append(" upd_status = :updStatus,");
+        }
+        if(valStatus!=null){
+            sql.append(" val_status = :valStatus,");
+        }
+        if(remark!=null){
+            sql.append(" remark = :remark");
+        }
+        sql.append(" where 1 = 1");
+        if(provCode!=null){
+            sql.append(" and prov_code = :provCode");
+        }
+        if(tableCodes!=null&&tableCodes.length>0){
+            tableCodeStr = StringUtils.join(tableCodes,",");
+            sql.append(" and table_code in (:tableCodeStr)");
+        }
+        Query query = entityManager.createNativeQuery(sql.toString());
+        query.setParameter("updStatus",Integer.valueOf(updStatus));
+        query.setParameter("valStatus",Integer.valueOf(valStatus));
+        query.setParameter("remark",remark);
+        query.setParameter("provCode",provCode);
+        query.setParameter("tableCodeStr",tableCodeStr);
+        i = query.executeUpdate();
+        return i;
     }
 
 }
