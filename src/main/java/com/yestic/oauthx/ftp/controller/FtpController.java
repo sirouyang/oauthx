@@ -4,12 +4,10 @@ import com.yestic.oauthx.common.utils.CommonCode;
 import com.yestic.oauthx.ftp.entity.FtpProvinceDetail;
 import com.yestic.oauthx.ftp.entity.FtpTableDetail;
 import com.yestic.oauthx.ftp.entity.FtpValidateBatch;
-import com.yestic.oauthx.ftp.entity.ValidateEx;
 import com.yestic.oauthx.ftp.service.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -128,7 +126,13 @@ public class FtpController {
     @RequestMapping("/updVal")
     @ResponseBody
     public int updVal(@RequestParam String provCode, @RequestParam String[] tableCodes, @RequestParam String updStatus, @RequestParam String valStatus, @RequestParam String remark) {
-        int i = validateDetailService.updValDetail(provCode, tableCodes, updStatus, valStatus, remark);
+        //int i = validateDetailService.updValDetail(provCode, tableCodes, updStatus, valStatus, remark);
+        provCode = provCode==null?"":provCode;
+        updStatus = updStatus==null?"":updStatus;
+        valStatus = valStatus==null?"":valStatus;
+        remark = remark==null?"":remark;
+        String tableCodeStr = StringUtils.join(tableCodes,",");
+        int i = validateDetailService.getValidateDetailDao().updValDetail(provCode, tableCodeStr, updStatus, valStatus, remark);
         return i;
     }
 

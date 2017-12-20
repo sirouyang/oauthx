@@ -163,7 +163,7 @@
             }
             ajaxlock = true;
             $.ajax({
-                cache:true,
+                dataType:'json',
                 type:'post',
                 url:url,
                 data:params,//你的表单

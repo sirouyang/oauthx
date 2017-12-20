@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.7.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -106,20 +106,20 @@
 			<artifactId>spring-security-acl</artifactId>
 			<version>4.2.3.RELEASE</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.mariadb.jdbc</groupId>
-			<artifactId>mariadb-java-client</artifactId>
-			<version>2.1.1</version>
-		</dependency>
-
 		<!--
+                <dependency>
+                    <groupId>org.mariadb.jdbc</groupId>
+                    <artifactId>mariadb-java-client</artifactId>
+                    <version>2.1.1</version>
+                </dependency>
+		-->
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		-->
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -201,7 +201,8 @@
 		</dependency>-->
 
 		<!--判断文件编码的依赖begin-->
-		<!--mvn install:install-file -Dfile=C:\Users\panda\Desktop\cpdetector_1.0.10_binary\cpdetector_1.0.10.jar -DgroupId=net.sourceforge.cpdetector -DartifactId=cpdetector -Dversion=1.0.10 -Dpackaging=jar
+		<!--
+mvn install:install-file -Dfile=C:\Users\panda\Desktop\cpdetector_1.0.10_binary\cpdetector_1.0.10.jar -DgroupId=net.sourceforge.cpdetector -DartifactId=cpdetector -Dversion=1.0.10 -Dpackaging=jar
 
 mvn install:install-file -Dfile=C:\Users\panda\Desktop\cpdetector_1.0.10_binary\ext\antlr-2.7.4.jar -DgroupId=antlr  -DartifactId=antlr -Dversion=2.7.4 -Dpackaging=jar
 

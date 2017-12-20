@@ -1,14 +1,14 @@
 package com.yestic.oauthx.ftp.dao;
 
 import com.yestic.oauthx.ftp.entity.FtpValidateDetail;
-import com.yestic.oauthx.ftp.entity.ValidateEx;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public interface ValidateDetailDao extends JpaRepository<FtpValidateDetail,String>{
@@ -46,5 +46,10 @@ public interface ValidateDetailDao extends JpaRepository<FtpValidateDetail,Strin
      * @return
      */
     List<FtpValidateDetail> getAllByProvCodeAndBatchCodeAndDelFlag(int provCode,int batchCode,int delFlag);
+
+    @Query(value = "update ftp_upload_detail set upd_status = :updStatus, val_status = :valStatus, remark = :remark where 1 = 1 and prov_code = :provCode and table_code in (:tableCodeStr)" ,nativeQuery = true)
+    @Modifying
+    @Transactional
+    int updValDetail(@Param("provCode") String provCode,@Param("tableCodeStr") String tableCodeStr,@Param("updStatus") String updStatus ,@Param("valStatus") String valStatus ,@Param("remark") String remark);
 
 }
